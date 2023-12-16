@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: userservice
-        image: oaddev/userservice
+        image: ${{ DOCKER_USERNAME }}/userservice
 ---
 apiVersion: v1
 kind: Service
