@@ -1,0 +1,21 @@
+name: Snyk Validate IAC
+on: 
+  pull_request:
+    branches: main
+  # Allows to run the workflow manually from actions tab
+  workflow_dispatch:
+  
+jobs:
+  snyk:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Snyk
+      # You may pin to the exact commit or the version.
+      # uses: snyk/actions@b98d498629f1c368650224d6d212bf7dfa89e4bf
+      uses: snyk/actions@0.4.0
+      with:
+        # Which Snyk command to run, defaults to test
+        command: snyk iac test
+
+          
