@@ -16,6 +16,6 @@ jobs:
       uses: snyk/actions@0.4.0
       with:
         # Which Snyk command to run, defaults to test
-        command: snyk iac test
+        command: snyk test
 
           
