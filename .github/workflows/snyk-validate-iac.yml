@@ -10,12 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Snyk
-      # You may pin to the exact commit or the version.
-      # uses: snyk/actions@b98d498629f1c368650224d6d212bf7dfa89e4bf
-      uses: snyk/actions@0.4.0
-      with:
-        # Which Snyk command to run, defaults to test
-        command: snyk test
-
+    - name: Run Snyk to check Kubernetes manifest file for issues
+      uses: snyk/actions/iac@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
           
