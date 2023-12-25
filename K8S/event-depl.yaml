@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eventservice
+  template:
+    metadata:
+      labels:
+        app: eventservice
+    spec:
+      containers:
+      - name: eventservice
+        image: ${{ DOCKER_USERNAME }}/eventservice
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: event-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: eventservice
+  ports:
+  - name: eventservice
+    protocol: TCP
+    port: 80
+    targetPort: 80
