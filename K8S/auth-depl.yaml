@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: authservice
-        image: ${{ DOCKER_USERNAME }}/authservice:016049b35ac0f1cd44a0a29c2c50a6647af676d8
+        image: ${{ DOCKER_USERNAME }}/authservice:271d557401d1c5826dbe83ae80be8a45563a4c41
 ---
 apiVersion: v1
 kind: Service
