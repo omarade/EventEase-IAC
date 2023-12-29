@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: authservice
-        image: oaddev/authservice:125c46887e599341528e7e752d80526c45840b7b
+        image: oaddev/authservice:238bc035b3b0dc01ce0579cb5c2f53623e16facb
 ---
 apiVersion: v1
 kind: Service
