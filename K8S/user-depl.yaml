@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: userservice
-        image: ${{ DOCKER_USERNAME }}/userservice:6d031ce1b79394bc60756e126299681565397468
+        image: ${{ DOCKER_USERNAME }}/userservice:00909a845d8d28faf817f4648f500d9593ac169f
 ---
 apiVersion: v1
 kind: Service
