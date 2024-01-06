@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: user-depl
+  name: search-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: userservice
+      app: searchservice
   template:
     metadata:
       labels:
-        app: userservice
+        app: searchservice
     spec:
       containers:
-      - name: userservice
-        image: oaddev/userservice:03a46529398b209f2366e54984089cdde792d5fa
+      - name: searchservice
+        image: oaddev/searchservice
         env:
           - name: RABBIT_MQ
             valueFrom:
@@ -26,22 +26,32 @@ spec:
               secretKeyRef:
                 name: jwt-secret
                 key: jwt
-          - name: USER_DB_CONNECTION_STRING
+          - name: SEARCH_DB_CONNECTION_STRING
             valueFrom:
               secretKeyRef:
-                name: user-db-secret
+                name: search-db-secret
                 key: db-connection-str
+          - name: SEARCH_DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: search-db-secret
+                key: db-name
+          - name: EVENTS_COLLECTION_NAME
+            valueFrom:
+              secretKeyRef:
+                name: search-db-secret
+                key: events-collection-name
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: user-clusterip-srv
+  name: search-clusterip-srv
 spec:
   type: ClusterIP
   selector:
-    app: userservice
+    app: searchservice
   ports:
-  - name: userservice
+  - name: searchservice
     protocol: TCP
     port: 80
     targetPort: 80

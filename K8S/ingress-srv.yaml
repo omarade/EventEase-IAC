@@ -24,4 +24,18 @@ spec:
                 name: user-clusterip-srv
                 port:
                   number: 80
+          - path: /api/events
+            pathType: Prefix
+            backend:
+              service:
+                name: event-clusterip-srv
+                port:
+                  number: 80
+          - path: /api/search
+            pathType: Prefix
+            backend:
+              service:
+                name: search-clusterip-srv
+                port:
+                  number: 80
 
