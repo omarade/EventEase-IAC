@@ -31,6 +31,26 @@ spec:
               secretKeyRef:
                 name: auth-db-secret
                 key: db-connection-str
+        
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 15
+          timeoutSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 15
+          timeoutSeconds: 10
+
+        startupProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
 ---
 apiVersion: v1
 kind: Service

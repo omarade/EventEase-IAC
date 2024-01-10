@@ -3,6 +3,9 @@ kind: Application
 metadata:
   name: eventease-argo-application
   namespace: argocd
+  # delete resources when argo is stopped
+  finalizers:
+   - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   # Tracked repo
