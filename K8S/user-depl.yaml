@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: userservice
-        image: oaddev/userservice:00909a845d8d28faf817f4648f500d9593ac169f
+        image: oaddev/userservice:eacc0e9f2fae476a75c639643ce99e7a466b9f85
         env:
           - name: RABBIT_MQ
             valueFrom:
