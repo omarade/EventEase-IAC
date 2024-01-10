@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: authservice
-        image: oaddev/authservice:920ba74ef74a8eb1eeace13464d99d61e081932f
+        image: oaddev/authservice:fd3622e41339e7309bdb4779eb456cb1919b522e
         env:
           - name: RABBIT_MQ
             valueFrom:
