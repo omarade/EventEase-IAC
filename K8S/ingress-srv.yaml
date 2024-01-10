@@ -6,37 +6,38 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: 'true'
+    nginx.ingress.kubernetes.io/ssl-redirect: 'false'
 spec:
   rules:
-    - host: eventease.com
-      http:
-        paths:
-          - path: /api/auth
-            pathType: Prefix
-            backend:
-              service:
-                name: auth-clusterip-srv
-                port:
-                  number: 80
-          - path: /api/users
-            pathType: Prefix
-            backend:
-              service:
-                name: user-clusterip-srv
-                port:
-                  number: 80
-          - path: /api/events
-            pathType: Prefix
-            backend:
-              service:
-                name: event-clusterip-srv
-                port:
-                  number: 80
-          - path: /api/search
-            pathType: Prefix
-            backend:
-              service:
-                name: search-clusterip-srv
-                port:
-                  number: 80
+    # - host: eventease.com
+    http:
+      paths:
+        - path: /api/auth/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: auth-clusterip-srv
+              port:
+                number: 80
+        - path: /api/users/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: user-clusterip-srv
+              port:
+                number: 80
+        - path: /api/events/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: event-clusterip-srv
+              port:
+                number: 80
+        - path: /api/search/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: search-clusterip-srv
+              port:
+                number: 80
 
