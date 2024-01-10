@@ -30,7 +30,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: event-db-secret
-                key: event-db
+                key: db-connection-str
 ---
 apiVersion: v1
 kind: Service

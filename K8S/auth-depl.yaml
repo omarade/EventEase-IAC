@@ -30,7 +30,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: auth-db-secret
-                key: auth-db
+                key: db-connection-str
 ---
 apiVersion: v1
 kind: Service
