@@ -9,8 +9,8 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: 'false'
 spec:
   rules:
-    # - host: eventease.com
-    - host: eventeasea-myresourcegroup-d1843c-dlne5kur.hcp.westeurope.azmk8s.io
+    - host: eventease.com
+    # - host: eventeasea-myresourcegroup-d1843c-dlne5kur.hcp.westeurope.azmk8s.io
       http:
         paths:
           - path: /api/auth/?(.*)
