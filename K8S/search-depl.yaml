@@ -4,7 +4,7 @@ metadata:
   name: search-depl
   # namespace: eventease
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: searchservice
