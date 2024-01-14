@@ -3,6 +3,10 @@ kind: Deployment
 metadata:
   name: auth-depl
   # namespace: eventease
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/"
+    prometheus.io/port: "80"
 spec:
   replicas: 1
   selector:
