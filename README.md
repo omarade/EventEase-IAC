@@ -4,6 +4,7 @@ This repository contains the configuration files for the [Event Ease](https://gi
 ## Commands
 
 ```bash
+# ArgoCD
 # install ArgoCD in k8s
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
@@ -17,14 +18,24 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 # you can change and delete init password
 
+
+
+# Monitoring with Prometheus & Grafana
+# the app should be running on Kubernetes
+kubectl create namespace monitoring
+kubectl apply -f kubernetes-prometheus
+kubectl apply -f kubernetes-grafana
 ```
 </br>
 
 ## Links
 
-* Install ArgoCD: [https://argo-cd.readthedocs.io/en/stable/getting_started/#1-install-argo-cd](https://argo-cd.readthedocs.io/en/stable/getting_started/#1-install-argo-cd)
+* Install ArgoCD: https://argo-cd.readthedocs.io/en/stable/getting_started/#1-install-argo-cd
 
-* Login to ArgoCD: [https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli](https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli)
+* Login to ArgoCD: https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli
 
-* ArgoCD Configuration: [https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/)
+* ArgoCD Configuration: https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/
 
+* Prometheus Setup: https://devopscube.com/setup-prometheus-monitoring-on-kubernetes/
+
+* Grafana Setup: https://devopscube.com/setup-grafana-kubernetes/
