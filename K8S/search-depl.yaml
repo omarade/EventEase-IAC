@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: searchservice
-        image: oaddev/searchservice:09b19158ba4998cba9cacc2348b01ab08a335045
+        image: oaddev/searchservice:f44b96201b4a173c5ebace5e499a42b5edf3f56d
         env:
           - name: RABBIT_MQ
             valueFrom:
