@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: eventservice
-        image: oaddev/eventservice:f2838b421d5094e995c3a558afbb39a037183021
+        image: oaddev/eventservice:3b3520e585a6e2fb39fdf51f6a8e1bf58c5c7249
         env:
           - name: RABBIT_MQ
             valueFrom:
