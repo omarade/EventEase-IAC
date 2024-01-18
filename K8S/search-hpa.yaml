@@ -7,7 +7,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: search-depl
+    name: searchservice
     metrics: 50
   minReplicas: 1
   maxReplicas: 6
