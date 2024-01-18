@@ -3,22 +3,14 @@ kind: Ingress
 metadata:
   name: ingress-azure-srv
   namespace: eventease
-  
-  # annotations:
-    # kubernetes.io/ingress.class: nginx
-    # nginx.ingress.kubernetes.io/use-regex: 'true'
-    # nginx.ingress.kubernetes.io/ssl-redirect: 'false'
 
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    # nginx.ingress.kubernetes.io/use-regex: "true"
-    # nginx.ingress.kubernetes.io/rewrite-target: /$3
     kubernetes.io/ingress.class: azure/application-gateway
 spec:
   ingressClassName: webapprouting.kubernetes.azure.com
   rules:
     # - host: eventease.com
-    # - host: eventeasea-myresourcegroup-d1843c-dlne5kur.hcp.westeurope.azmk8s.io
   - http:
       paths:
         - backend:
@@ -52,53 +44,3 @@ spec:
                 number: 80
           path: /api/search/events
           pathType: Prefix
-          
-          # - path: /api/auth/?(.*)
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: auth-clusterip-srv
-          #       port:
-          #         number: 80
-          # - path: /api/users/?(.*)
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: user-clusterip-srv
-          #       port:
-          #         number: 80
-          # - path: /api/events/?(.*)
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: event-clusterip-srv
-          #       port:
-          #         number: 80
-          # - path: /api/search/?(.*)
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: search-clusterip-srv
-          #       port:
-          #         number: 80
-
-
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: aks-helloworld
-#   namespace: hello-web-app-routing
-# spec:
-#   ingressClassName: webapprouting.kubernetes.azure.com
-#   rules:
-#   # - host: <Hostname>
-#   - http:
-#       paths:
-#       - backend:
-#           service:
-#             name: aks-helloworld
-#             port:
-#               number: 80
-#         path: /
-#         pathType: Prefix
-
