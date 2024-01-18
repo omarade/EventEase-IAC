@@ -48,9 +48,11 @@ spec:
                 key: events-collection-name
         # for HPA
         resources:
+          # minimum resources guaranteed by Kubernetes
           requests:
             cpu: 100m
             memory: 100M
+          # upper limit on resources
           limits:
             cpu: 200m
             memory: 200M
