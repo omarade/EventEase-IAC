@@ -46,6 +46,14 @@ spec:
               secretKeyRef:
                 name: search-db-secret
                 key: events-collection-name
+        # for HPA
+        resources:
+          requests:
+            cpu: 100m
+            memory: 1M
+          limits:
+            cpu: 200m
+            memory: 5M
 ---
 apiVersion: v1
 kind: Service

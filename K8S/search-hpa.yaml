@@ -1,7 +1,8 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: searchservice
+  name: searchservice-hpa
+  namespace: eventease
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
