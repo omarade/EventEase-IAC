@@ -50,12 +50,12 @@ spec:
         resources:
           # minimum resources guaranteed by Kubernetes
           requests:
-            cpu: 100m
-            memory: 100M
+            cpu: 500m
+            memory: 500M
           # upper limit on resources
           limits:
-            cpu: 200m
-            memory: 200M
+            cpu: 1000m
+            memory: 1000M
 ---
 apiVersion: v1
 kind: Service
